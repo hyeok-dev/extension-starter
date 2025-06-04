@@ -1,0 +1,41 @@
+{
+    "manifest_version" : 3,
+    "name" : "",
+    "version" : "1.0.0",
+    "description": "",
+    
+    "icons": {
+        "32": "",
+        "128": ""
+    },
+
+    "host_permissions":[ "<all_urls>" ],
+    "permissions":[
+        "tabs",
+        "commands",
+        "storage",
+        "unlimitedStorage",
+        "contextMenus",
+        "activeTab",
+        "scripting",
+        "notifications"
+    ],
+
+    "action": {
+        "default_popup": "/popup/popup.html",
+        "default_icon": ""
+    },
+
+    "background" : { 
+        "service_worker" : "background.js" 
+    },
+    
+    "content_scripts": [
+        { "matches": ["<all_urls>"], "js": ["content.js"] },
+    ],
+
+    "web_accessible_resources": [
+        { "matches": ["<all_urls>"], "resources": ["inject/*"] },
+        { "matches": ["<all_urls>"], "resources": ["src/*"] }
+    ]
+}
